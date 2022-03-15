@@ -16,7 +16,7 @@ namespace Challenges.c1_types_and_control_flow
         /// <returns>returns the larger of the 2 numbers passed as parameters</returns>
         public int FindLargestNumber(int num1, int num2)
         {
-            return -1;
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -27,7 +27,7 @@ namespace Challenges.c1_types_and_control_flow
         /// <returns></returns>
         public string FindLongestString(string string1, string string2)
         {
-            return "";
+            throw new NotImplementedException();
         }
         /// <summary>
         ///     A method to calculate a price discount. Given the price
@@ -39,7 +39,7 @@ namespace Challenges.c1_types_and_control_flow
         public double GetDiscount(double price, double discount)
         {
             // Extra Challenge: How would this change if price & discount were int types?
-            return -1;
+            throw new NotImplementedException();
         }
 
         // -------------- INTERMEDIATE --------------
@@ -52,7 +52,7 @@ namespace Challenges.c1_types_and_control_flow
         /// <returns> a boolean to specify whether the 2 params match to 4 decimal places. </returns>
         public bool CompareTwoNumbers(double num1, double num2)
         {
-            return true;
+            throw new NotImplementedException();
         }
         /// <summary>
         ///     A method to determine which day of the week it is from a numeric input.
@@ -68,7 +68,7 @@ namespace Challenges.c1_types_and_control_flow
         /// </returns>
         public string GetDayName(int day)
         {
-            return "";
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -77,9 +77,9 @@ namespace Challenges.c1_types_and_control_flow
         /// </summary>
         /// <param name="word"> a String to be checked whether the string has an even length or not. </param>
         /// <returns> a boolean the result of the length check. </returns>
-        public bool IsEvenWord(String word)
+        public bool IsEvenWord(string word)
         {
-            return true;
+            throw new NotImplementedException();
         }
 
         // -------------- ADVANCED --------------
@@ -94,7 +94,7 @@ namespace Challenges.c1_types_and_control_flow
         /// <returns> true if it is a leap year, false if not </returns>
         public bool LeapYearChecker(int year)
         {
-            return false;
+            throw new NotImplementedException();
         }
     }
 }

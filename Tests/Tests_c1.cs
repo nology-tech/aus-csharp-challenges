@@ -48,21 +48,21 @@ namespace Tests
         }
 
         [TestMethod]
-        void FindLargestString_ValidStrings_ReturnsLongest()
+        public void ValidStrings_ReturnsLongest()
         {
             string result = challenge.FindLongestString("Sam", "Andy");
             Assert.AreEqual("Andy", result);
         }
 
         [TestMethod]
-        void FindLargestString_EqualStrings_ReturnsEqualMessage()
+        public void FindLargestString_EqualStrings_ReturnsEqualMessage()
         {
             string result = challenge.FindLongestString("Cattywampus", "Cattywampus");
             Assert.AreEqual("These two are the same length!", result);
         }
 
         [TestMethod]
-        void FindLargestString_ConcatenatedString_ReturnsLongest()
+        public void FindLargestString_ConcatenatedString_ReturnsLongest()
         {
             string result = challenge.FindLongestString("In my younger and more vulnerable years, my father gave me some advice"
                     + "that I've been mulling over ever since...", "YEET!");
@@ -83,21 +83,21 @@ namespace Tests
         }
 
         [TestMethod]
-        void GetDiscount_ValidInputs_ReturnCorrectDiscount()
+        public void GetDiscount_ValidInputs_ReturnCorrectDiscount()
         {
             double result = challenge.GetDiscount(100, 10);
             Assert.AreEqual(90, result);
         }
 
         [TestMethod]
-        void GetDiscount_ValidInputs_ReturnCorrectDiscountWithDecimals()
+        public void GetDiscount_ValidInputs_ReturnCorrectDiscountWithDecimals()
         {
             double result = challenge.GetDiscount(27, 5);
             Assert.AreEqual(25.65, result);
         }
 
         [TestMethod]
-        void GetDiscount_ValidInputs_OneHundredPercent_ReturnsZero()
+        public void GetDiscount_ValidInputs_OneHundredPercent_ReturnsZero()
         {
             double result = challenge.GetDiscount(100, 100);
             Assert.AreEqual(0, result);
@@ -116,28 +116,28 @@ namespace Tests
         }
 
         [TestMethod]
-        void compareTwoNumbers_ValidInputsNotEqual_ReturnFalse()
+        public void CompareTwoNumbers_ValidInputsNotEqual_ReturnFalse()
         {
             bool result = challenge.CompareTwoNumbers(12.3333, 12.3343);
             Assert.IsFalse(result);
         }
 
         [TestMethod]
-        void compareTwoNumbers_ValidInputsEqual_ReturnTrue()
+        public void CompareTwoNumbers_ValidInputsEqual_ReturnTrue()
         {
             bool result = challenge.CompareTwoNumbers(1.3333, 1.3333);
             Assert.IsTrue(result);
         }
 
         [TestMethod]
-        void CompareTwoNumbers_InvalidInput_ReturnsFalse()
+        public void CompareTwoNumbers_InvalidInput_ReturnsFalse()
         {
             bool result = challenge.CompareTwoNumbers(1.3333, 1.2222);
             Assert.IsFalse(result);
         }
 
         [TestMethod]
-        void CompareTwoNumbers_InvalidInputsNotDouble_ReturnFalse()
+        public void CompareTwoNumbers_InvalidInputsNotDouble_ReturnFalse()
         {
             bool result = challenge.CompareTwoNumbers(1, 1.2222);
             Assert.IsFalse(result);
@@ -157,56 +157,56 @@ namespace Tests
         }
 
         [TestMethod]
-        void getDayName_ValidInput_ReturnSunday()
+        public void GetDayName_ValidInput_ReturnSunday()
         {
             string result = challenge.GetDayName(0);
             Assert.AreEqual("Sunday", result);
         }
 
         [TestMethod]
-        void getDayName_ValidInput_ReturnMonday()
+        public void GetDayName_ValidInput_ReturnMonday()
         {
             string result = challenge.GetDayName(1);
             Assert.AreEqual("Monday", result);
         }
 
         [TestMethod]
-        void getDayName_ValidInput_ReturnTuesday()
+        public void GetDayName_ValidInput_ReturnTuesday()
         {
             string result = challenge.GetDayName(2);
             Assert.AreEqual("Tuesday", result);
         }
 
         [TestMethod]
-        void getDayName_ValidInput_ReturnWednesday()
+        public void GetDayName_ValidInput_ReturnWednesday()
         {
             string result = challenge.GetDayName(3);
             Assert.AreEqual("Wednesday", result);
         }
 
         [TestMethod]
-        void getDayName_ValidInput_ReturnThursday()
+        public void GetDayName_ValidInput_ReturnThursday()
         {
             string result = challenge.GetDayName(4);
             Assert.AreEqual("Thursday", result);
         }
 
         [TestMethod]
-        void getDayName_ValidInput_ReturnFriday()
+        public void GetDayName_ValidInput_ReturnFriday()
         {
             string result = challenge.GetDayName(5);
             Assert.AreEqual("Friday", result);
         }
 
         [TestMethod]
-        void getDayName_ValidInput_ReturnSaturday()
+        public void GetDayName_ValidInput_ReturnSaturday()
         {
             string result = challenge.GetDayName(6);
             Assert.AreEqual("Saturday", result);
         }
 
         [TestMethod]
-        void getDayName_InvalidInput_ReturnsOutOfRange()
+        public void GetDayName_InvalidInput_ReturnsOutOfRange()
         {
             string result = challenge.GetDayName(9);
             Assert.AreEqual("Not a valid day range! The number needs to be from 0-6", result);
@@ -226,28 +226,28 @@ namespace Tests
         }
 
         [TestMethod]
-        void leapYearChecker_ValidInput_ReturnsTrueDivisibleBy4()
+        public void LeapYearChecker_ValidInput_ReturnsTrueDivisibleBy4()
         {
             bool result = challenge.LeapYearChecker(2016);
             Assert.IsTrue(result);
         }
 
         [TestMethod]
-        void leapYearChecker_InvalidInput_ReturnsFalseNotDivisibleBy4()
+        public void LeapYearChecker_InvalidInput_ReturnsFalseNotDivisibleBy4()
         {
             bool result = challenge.LeapYearChecker(2017);
             Assert.IsFalse(result);
         }
 
         [TestMethod]
-        void leapYearChecker_ValidInput_ReturnsTrueDivisibleBy4And400()
+        public void LeapYearChecker_ValidInput_ReturnsTrueDivisibleBy4And400()
         {
             bool result = challenge.LeapYearChecker(2000);
             Assert.IsTrue(result);
         }
 
         [TestMethod]
-        void leapYearChecker_InvalidInput_ReturnsFalseDivisibleBy4And100()
+        public void LeapYearChecker_InvalidInput_ReturnsFalseDivisibleBy4And100()
         {
             bool result = challenge.LeapYearChecker(2100);
             Assert.IsFalse(result);
