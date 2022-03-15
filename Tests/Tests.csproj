@@ -17,4 +17,10 @@
     <ProjectReference Include="..\Challenges\Challenges.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="Tests_c3\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Tests_c3\" />
+  </ItemGroup>
 </Project>

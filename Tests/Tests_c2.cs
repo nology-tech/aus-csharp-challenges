@@ -16,7 +16,7 @@ namespace Tests
         }
 
         [TestMethod]
-        public void GetFullName_ValidInput_ReturnsFullNameWithSpace()
+        public void ValidInput_ReturnsFullNameWithSpace()
         {
             string result = challenge.GetFullName("Sam", "Joyce");
             Assert.AreEqual("Sam Joyce", result);
@@ -35,35 +35,35 @@ namespace Tests
         }
 
         [TestMethod]
-        public void IsWithinRange_ValidInput_ReturnsTrueWithinRange()
+        public void ValidInput_ReturnsTrueWithinRange()
         {
             bool result = challenge.IsWithinRange(20, 50);
             Assert.IsTrue(result);
         }
 
         [TestMethod]
-        public void IsWithinRange_ValidInput_ReturnsTrueRangeLimit()
+        public void ValidInput_ReturnsTrueRangeLimit()
         {
             bool result = challenge.IsWithinRange(10, 10);
             Assert.IsTrue(result);
         }
 
         [TestMethod]
-        public void IsWithinRange_ValidInput_ReturnsTrueRangeStart()
+        public void ValidInput_ReturnsTrueRangeStart()
         {
             bool result = challenge.IsWithinRange(0, 10);
             Assert.IsTrue(result);
         }
 
         [TestMethod]
-        public void IsWithinRange_InvalidInput_ReturnsFalseOutOfRange()
+        public void InvalidInput_ReturnsFalseOutOfRange()
         {
             bool result = challenge.IsWithinRange(600, 20);
             Assert.IsTrue(result);
         }
 
         [TestMethod]
-        public void IsWithinRange_InvalidInput_ReturnsFalseBelowZero()
+        public void InvalidInput_ReturnsFalseBelowZero()
         {
             bool result = challenge.IsWithinRange(-50, 20);
             Assert.IsFalse(result);
@@ -82,35 +82,35 @@ namespace Tests
         }
 
         [TestMethod]
-        public void StringCalculator_ValidInputs_ReturnsAdditionResult()
+        public void ValidInputs_ReturnsAdditionResult()
         {
             int result = challenge.StringCalculator(10, 20, "+");
             Assert.AreEqual(30, result);
         }
 
         [TestMethod]
-        public void StringCalculator_ValidInputs_ReturnsMinusResult()
+        public void ValidInputs_ReturnsMinusResult()
         {
             int result = challenge.StringCalculator(500, 20, "-");
             Assert.AreEqual(480, result);
         }
 
         [TestMethod]
-        public void StringCalculator_ValidInputs_ReturnsDivisionResult()
+        public void ValidInputs_ReturnsDivisionResult()
         {
             int result = challenge.StringCalculator(500, 2, "/");
             Assert.AreEqual(250, result);
         }
 
         [TestMethod]
-        public void StringCalculator_ValidInputs_ReturnsMultiplicationResult()
+        public void ValidInputs_ReturnsMultiplicationResult()
         {
             int result = challenge.StringCalculator(5, 20, "*");
             Assert.AreEqual(100, result);
         }
 
         [TestMethod]
-        public void StringCalculator_InvalidInputs_ReturnsMinusOne()
+        public void InvalidInputs_ReturnsMinusOne()
         {
             int invalidFirstNumber = challenge.StringCalculator(-500, 2, "/");
             Assert.AreEqual(-1, invalidFirstNumber);
@@ -133,56 +133,56 @@ namespace Tests
         }
 
         [TestMethod]
-        public void ShouldWakeUp_ValidInput_ReturnsTrueAfterTenBarking()
+        public void ValidInput_ReturnsTrueAfterTenBarking()
         {
             bool result = challenge.ShouldWakeUp(true, 23);
             Assert.IsTrue(result);
         }
 
         [TestMethod]
-        public void ShouldWakeUp_InvalidInput_ReturnsFalseAfterTenNotBarking()
+        public void InvalidInput_ReturnsFalseAfterTenNotBarking()
         {
             bool result = challenge.ShouldWakeUp(false, 23);
             Assert.IsFalse(result);
         }
 
         [TestMethod]
-        public void ShouldWakeUp_ValidInput_ReturnsTrueBeforeEightBarking()
+        public void ValidInput_ReturnsTrueBeforeEightBarking()
         {
             bool result = challenge.ShouldWakeUp(true, 5);
             Assert.IsTrue(result);
         }
 
         [TestMethod]
-        public void ShouldWakeUp_InvalidInput_ReturnsFalseBeforeEightNotBarking()
+        public void InvalidInput_ReturnsFalseBeforeEightNotBarking()
         {
             bool result = challenge.ShouldWakeUp(false, 5);
             Assert.IsFalse(result);
         }
 
         [TestMethod]
-        public void ShouldWakeUp_ValidInput_ReturnsFalseNotAfterTen()
+        public void ValidInput_ReturnsFalseNotAfterTen()
         {
             bool result = challenge.ShouldWakeUp(true, 22);
             Assert.IsFalse(result);
         }
 
         [TestMethod]
-        public void ShouldWakeUp_ValidInput_ReturnsFalseNotBeforeEight()
+        public void ValidInput_ReturnsFalseNotBeforeEight()
         {
             bool result = challenge.ShouldWakeUp(true, 8);
             Assert.IsFalse(result);
         }
 
         [TestMethod]
-        public void ShouldWakeUp_InvalidInput_ReturnsFalseOutOfRange()
+        public void InvalidInput_ReturnsFalseOutOfRange()
         {
             bool result = challenge.ShouldWakeUp(true, 50);
             Assert.IsFalse(result);
         }
 
         [TestMethod]
-        public void ShouldWakeUp_InvalidInput_ReturnsFalseBelowRange()
+        public void InvalidInput_ReturnsFalseBelowRange()
         {
             bool result = challenge.ShouldWakeUp(true, -50);
             Assert.IsFalse(result);
@@ -201,28 +201,28 @@ namespace Tests
         }
 
         [TestMethod]
-        public void GetMiddleCharacter_ValidInput_OddReturnsSingleCharacter()
+        public void ValidInput_OddReturnsSingleCharacter()
         {
             string result = challenge.GetMiddleCharacter("Sam");
             Assert.AreEqual("a", result);
         }
 
         [TestMethod]
-        public void GetMiddleCharacter_ValidInput_EvenReturnsMultipleCharacters()
+        public void ValidInput_EvenReturnsMultipleCharacters()
         {
             string result = challenge.GetMiddleCharacter("Andy");
             Assert.AreEqual("nd", result);
         }
 
         [TestMethod]
-        public void GetMiddleCharacter_InvalidInput_MultipleWordsReturnsInvalidMessage()
+        public void InvalidInput_MultipleWordsReturnsInvalidMessage()
         {
             string result = challenge.GetMiddleCharacter("Sam Joyce");
             Assert.AreEqual("Invalid Input", result);
         }
 
         [TestMethod]
-        public void GetMiddleCharacter_InvalidInput_NoWordReturnsInvalidMessage()
+        public void InvalidInput_NoWordReturnsInvalidMessage()
         {
             string result = challenge.GetMiddleCharacter("");
             Assert.AreEqual("Invalid Input", result);
@@ -241,28 +241,28 @@ namespace Tests
         }
 
         [TestMethod]
-        public void PrintMegaBytesAndKiloBytes_ValidInputs_Returns2MBand172KB()
+        public void ValidInputs_Returns2MBand172KB()
         {
             String result = challenge.PrintMegaBytesAndKiloBytes(2220);
             Assert.AreEqual("2220 KB = 2 MB and 172 KB", result);
         }
 
         [TestMethod]
-        public void PrintMegaBytesAndKiloBytes_ValidInputs_Returns1MBand0KB()
+        public void ValidInputs_Returns1MBand0KB()
         {
             String result = challenge.PrintMegaBytesAndKiloBytes(1024);
             Assert.AreEqual("1024 KB = 1 MB and 0 KB", result);
         }
 
         [TestMethod]
-        public void PrintMegaBytesAndKiloBytes_ValidInputs_Returns0MBand500KB()
+        public void ValidInputs_Returns0MBand500KB()
         {
             String result = challenge.PrintMegaBytesAndKiloBytes(500);
             Assert.AreEqual("500 KB = 0 MB and 500 KB", result);
         }
 
         [TestMethod]
-        public void PrintMegaBytesAndKiloBytes_InvalidInputs_ReturnsInvalidMessage()
+        public void InvalidInputs_ReturnsInvalidMessage()
         {
             String result = challenge.PrintMegaBytesAndKiloBytes(-2220);
             Assert.AreEqual("Invalid Value", result);
@@ -281,28 +281,28 @@ namespace Tests
         }
 
         [TestMethod]
-        public void CalculateReturn_ValidInputs_ReturnGrowth10Years()
+        public void ValidInputs_ReturnGrowth10Years()
         {
             string result = challenge.CalculateReturn(1000, 10, 0.1);
             Assert.AreEqual("You now have " + 2594, result);
         }
 
         [TestMethod]
-        public void CalculateReturn_InvalidInputs_InvestmentReturnInvestmentMessage()
+        public void InvalidInputs_InvestmentReturnInvestmentMessage()
         {
             string result = challenge.CalculateReturn(-1000, 10, 0.1);
             Assert.AreEqual("Invalid investment", result);
         }
 
         [TestMethod]
-        public void CalculateReturn_InvalidInputs_YearsReturnYearsMessage()
+        public void InvalidInputs_YearsReturnYearsMessage()
         {
             string result = challenge.CalculateReturn(1000, -10, 0.1);
             Assert.AreEqual("Invalid years", result);
         }
 
         [TestMethod]
-        public void CalculateReturn_InvalidInputs_InterestReturnInterestMessage()
+        public void InvalidInputs_InterestReturnInterestMessage()
         {
             string interestToHigh = challenge.CalculateReturn(1000, 10, 1);
             Assert.AreEqual("Invalid rate of interest", interestToHigh);
