@@ -115,11 +115,13 @@ namespace Tests
         {
             challenge = new Challenge();
 
-            data2 = new List<int>();
-            data2.Add(3);
-            data2.Add(5);
-            data2.Add(10);
-            data2.Add(12);
+            data2 = new List<int>
+            {
+                3,
+                5,
+                10,
+                12
+            };
         }
 
 

@@ -12,8 +12,6 @@
     <None Remove="c5_arrays_extended\" />
     <None Remove="c6_unit_testing\" />
     <None Remove="c7_collections\" />
-    <None Remove="c8_hash_maps\" />
-    <None Remove="c9_streams\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="c2_control_flow_extended\" />
@@ -22,7 +20,5 @@
     <Folder Include="c5_arrays_extended\" />
     <Folder Include="c6_unit_testing\" />
     <Folder Include="c7_collections\" />
-    <Folder Include="c8_hash_maps\" />
-    <Folder Include="c9_streams\" />
   </ItemGroup>
 </Project>
