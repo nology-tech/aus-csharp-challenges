@@ -39,7 +39,7 @@ namespace Challenges.c2_control_flow_extended
         /// <param name="numberTwo"> the second number in the equation </param>
         /// <param name="op"> the operator to complete the equation </param>
         /// <returns> the result of the equation </returns>
-        public int StringCalculator(int numberOne, int numberTwo, String op)
+        public int StringCalculator(int numberOne, int numberTwo, string op)
         {
             throw new NotImplementedException();
         }
@@ -100,7 +100,7 @@ namespace Challenges.c2_control_flow_extended
         ///     If years is less than or equal 0 return "Invalid years"
         ///     If rateOfInterest is less than 0 or greater than or equal to 1 return "Invalid rate of interest"
         ///
-        ///     HINT: https://www.w3schools.com/java/java_for_loop.asp
+        ///     
         /// </summary>
         /// <param name="initialInvestment"> double - the starting value </param>
         /// <param name="years"> int - the number of years that the investment will take </param>
