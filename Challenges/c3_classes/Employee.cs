@@ -20,11 +20,11 @@ namespace Challenges.c3_classes
 
         ///
         /// Create 4 public fields:
-            ///- name is a string
-            /// - position is a string
-            /// - rating is a integer
-            /// - yearsEmployed is a integer
-            ///- completedDeals is a integer
+        ///- name is a string
+        /// - position is a string
+        /// - rating is an int
+        /// - yearsEmployed is an int
+        ///- completedDeals is an int
         ///
 
         ///
@@ -36,11 +36,11 @@ namespace Challenges.c3_classes
         }
 
         ///
-        ///Complete the isPromotable method
+        /// Complete the isPromotable method
         ///
         /// It needs to check if the employee rating is over 7, if so return true... else false
         ///
-        /// <returns> boolean if employee is promotable </returns>
+        /// <returns> bool if employee is promotable </returns>
         ///
         public bool IsPromotable()
             {
@@ -65,10 +65,10 @@ namespace Challenges.c3_classes
         /// It needs to check if the employee is able to get a bonus.
         ///
         /// To get a bonus:
-            /// - They need a rating above 8.
-            /// - They need a deals per year average greater than or equal to 20.
+        /// - They need a rating above 8.
+        /// - They need a deals per year average greater than or equal to 20.
         ///
-        /// <returns> boolean if they are eligible for a bonus </returns> 
+        /// <returns> bool - if they are eligible for a bonus </returns> 
         ///
         public bool HasBonusQualification()
             {
