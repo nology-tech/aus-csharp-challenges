@@ -44,14 +44,13 @@ namespace Challenges.c4_arrays_and_loops
         // -------------- INTERMEDIATE --------------
 
         /// <summary>
-        ///     Find all numbers between a min and a max value and return them in an array.
-        ///     The min at the start and the max at the end of the returned array.
+        ///     Find all numbers within an inclusive range of min - max and return them in an array.
         ///
-        ///     If the min is greater than the max return a empty integer array.
+        ///     If the given min is greater than the given max return a empty integer array.
         /// </summary>
         /// 
-        /// <param name="min"> - The starting range value e.g. 3 </param>
-        /// <param name="max"> - The ending/finishing range value e.g. 6 </param>
+        /// <param name="min"> - The starting range value e.g. 3 (inclusive) </param>
+        /// <param name="max"> - The ending range value e.g. 6 (inclusive) </param>
         /// <returns> a new array of all numbers between and including the min and max number. e.g. [3, 4, 5, 6] </returns>
         ///
         public int[] GetRange(int min, int max)
@@ -60,11 +59,12 @@ namespace Challenges.c4_arrays_and_loops
         }
 
         /// <summary>
-        ///     Swap the first and last names in a string
+        ///     Swap the names within a given string. If fullName contains a middle name, the swap will pivot around
+        ///     the middle name. e.g -> "Alexander Graham Bell" -> "Bell Graham Alexander" 
         /// </summary>
         /// 
-        /// <param name="fullName"> e.g. "Andy Evans" </param>
-        /// <returns> a string with the last name, followed by the first name e.g. "Evans Andy" </returns>
+        /// <param name="fullName"> e.g. "Andy Evans" or "Jane Doe Smith" </param>
+        /// <returns> a string with the last name, followed by the first name e.g. "Evans Andy" or "Smith Doe Jane"</returns>
         ///
         public string SwapNames(string fullName)
         {
@@ -72,11 +72,11 @@ namespace Challenges.c4_arrays_and_loops
         }
 
         /// <summary>
-        ///     Determine whether a given score is the highest score out of a array of scores.
+        ///     Determine whether a given score is the highest score out of an array of scores.
         /// 
         /// 
-        ///     Can you use a for-each loop?
-        ///     https://www.w3schools.com/java/java_for_loop.asp
+        ///     Could you use a for-each loop?
+        ///     
         /// </summary>
         /// 
         /// <param name="scoresArr"> e.g. [3, 10, 2, 8] </param>
@@ -92,17 +92,36 @@ namespace Challenges.c4_arrays_and_loops
 
         /// <summary>
         ///     Given an array of numbers, sort these numbers numerically lowest to highest by comparing adjacent numbers.
+        ///     NOTE: There are many sorting algorithms out there - any of them will suffices. Three popular ones are
+        ///           bubble sort, insertion sort, and quick sort. For your initial solution, try using bubble sort
+        ///           as it is the easiest. Then, try your hand at Insertion and Quick Sort. Think about the time complexity of
+        ///           each solution as you work through them. Which one is >quick<est? ;)
         ///
-        ///     NOTE: Your code should work by repeatedly swapping the adjacent elements if they are in wrong order.
-        ///     Example:
+        /// 
+        ///     Bubble Sort Ex: (Easy)
         ///     First Pass:
         ///     ( 5 1 4 2 8 ) –> ( 1 5 4 2 8 ), Here, algorithm compares the first two elements, and swaps since 5 > 1.
         ///     ( 1 5 4 2 8 ) –>  ( 1 4 5 2 8 ), Swap since 5 > 4
         ///     ( 1 4 5 2 8 ) –>  ( 1 4 2 5 8 ), Swap since 5 > 2
         ///     ( 1 4 2 5 8 ) –> ( 1 4 2 5 8 ), Now, since these elements are already in order (8 > 5), algorithm does not swap them
+        ///     https://en.wikipedia.org/wiki/Bubble_sort
         ///
-        ///     HINT: Can you use a nested for loop?
-        ///     https://www.programiz.com/java-programming/nested-loop
+        ///     Insertion Sort Ex: (Medium) 
+        ///         Insertion sort essentially builds a sorted array one element at a time.
+        ///         It takes the first element and moves it each iteration until it finds the location
+        ///         in which it belongs and inserts it there.
+        ///     First Pass:
+        ///     ( 5 1 4 2 8) -> ( 1 4 2 5 8 ), The algorithm takes the first element 5, and moves it left until it is in the correct position. 
+        ///     ( 1 4 2 5 8) -> ( 1 2 4 5 8 ), 1 is already in the correct position, so we start at 4 and move it to its correct position. Voîla! Sorted.
+        ///     https://en.wikipedia.org/wiki/Insertion_sort
+        ///     
+        ///     Quick Sort Ex: (Hard) 
+        ///         Quick Sort chooses a pivot value, and compares the values to the left and right of the pivot to determine if they lay on the correct side.
+        ///         It divides and conquers to sort the array through partitioning. It then recursively applys itself to the range up to and the range beyond the partition. 
+        ///     First Pass:
+        ///     ( 5 1 4 2 8 ) -> ( 2 1 4 5 8 ), using a pivot of 4, we move the values less than 4 to the left and the ones greater than 4 to the right
+        ///     ( 2 1 4 5 8 ) -> ( 1 2 4 5 8 ), we make two sub-ranges (1 2 4) & (4 5 8), using pivots 1 and 5, respectively, we recursively sort both ranges
+        ///     https://en.wikipedia.org/wiki/Quicksort
         /// </summary>
         /// 
         /// <param name="numbersArr"> - array of numbers e.g. [5, 1, 4, 2, 8] </param>

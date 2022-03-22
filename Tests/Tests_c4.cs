@@ -186,6 +186,13 @@ namespace Tests
             bool result = challenge.IsHighestScore(new int[0], 12);
             Assert.IsTrue(result);
         }
+
+        [TestMethod]
+        public void MatchingHighScores_ReturnsFalse()
+        {
+            bool result = challenge.IsHighestScore(new int[] { 3, 4, 10, 10, 6, 9 }, 10);
+            Assert.IsFalse(result);
+        }
     }
 
     [TestClass]
