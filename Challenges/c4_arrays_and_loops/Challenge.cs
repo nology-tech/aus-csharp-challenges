@@ -117,7 +117,7 @@ namespace Challenges.c4_arrays_and_loops
         ///     
         ///     Quick Sort Ex: (Hard) 
         ///         Quick Sort chooses a pivot value, and compares the values to the left and right of the pivot to determine if they lay on the correct side.
-        ///         It divides and conquers to sort the array through partitioning. It then recursively applys itself to the range up to and the range beyond the partition. 
+        ///         It divides and conquers to sort the array through partitioning, recursively applying itself to the range up to and the range beyond the partition. 
         ///     First Pass:
         ///     ( 5 1 4 2 8 ) -> ( 2 1 4 5 8 ), using a pivot of 4, we move the values less than 4 to the left and the ones greater than 4 to the right
         ///     ( 2 1 4 5 8 ) -> ( 1 2 4 5 8 ), we make two sub-ranges (1 2 4) & (4 5 8), using pivots 1 and 5, respectively, we recursively sort both ranges
