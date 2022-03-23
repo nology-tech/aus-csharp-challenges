@@ -10,19 +10,15 @@ namespace Tests
     {
         private Challenge challenge;
         private Dictionary<string, string> books;
-        private String title;
-        private String title2;
-        private String title3;
+        private List<string> emptyList;
+
 
         [TestInitialize]
         public void SetUp()
         {
             challenge = new Challenge();
 
-
-            title = "Macbeth";
-            title2 = "A Midsummer Night's Dream";
-            title3 = "Hamlet";
+            emptyList.Clear();
 
             books = new Dictionary<string, string>
             {
@@ -38,20 +34,27 @@ namespace Tests
         }
 
         [TestMethod]
-        public void ValidInputs_ReturnStrings()
+        public void ValidInput_ReturnsList()
         {
-            Assert.AreEqual("978-19283756", challenge.FindIsbnByTitle(books, title));
-            Assert.AreEqual("978-99112288", challenge.FindIsbnByTitle(books, title2));
-            Assert.AreEqual("965-97887998", challenge.FindIsbnByTitle(books, title3));
+            List<string> expected = new List<string>() { "978-19283746" };
+            List<string> result = challenge.FilterIsbnByTitleSnippet(books, "ing");
+            Assert.AreEqual(expected, result);
 
         }
 
         [TestMethod]
-        public void InvalidInputs_ReturnEmptyString()
+        public void ValidInput_ReturnsListOfTwoIsbns()
         {
-            Assert.AreEqual("", challenge.FindIsbnByTitle(books, "The Merchant of Venice"));
-            Assert.AreEqual("", challenge.FindIsbnByTitle(books, "Romeo and Juliet"));
-            Assert.AreEqual("", challenge.FindIsbnByTitle(books, "Twelfth Night"));
+            List<string> expected = new List<string>() { "978-19283756", "954-12345678" };
+            List<string> result = challenge.FilterIsbnByTitleSnippet(books, "th");
+            Assert.AreEqual(expected, result);
+
+        }
+
+        [TestMethod]
+        public void InvalidInputs_ReturnEmptyList()
+        {
+            Assert.AreEqual(emptyList, challenge.FilterIsbnByTitleSnippet(books, "xxx"));
 
         }
     }
@@ -80,7 +83,7 @@ namespace Tests
         [TestMethod]
         public void ValidInput_KingLear()
         {
-            List<String> result = challenge.FilterByIsbnSnippet(this.books, "978-19283746");
+            List<string> result = challenge.FilterByIsbnSnippet(books, "978-19283746");
             Assert.AreEqual(1, result.Count);
             Assert.AreEqual("King Lear", result[0]);
         }
@@ -88,7 +91,7 @@ namespace Tests
         [TestMethod]
         public void ValidInput_Macbeth()
         {
-            List<string> result = challenge.FilterByIsbnSnippet(this.books, "978-19283756");
+            List<string> result = challenge.FilterByIsbnSnippet(books, "978-19283756");
             Assert.AreEqual(1, result.Count);
             Assert.AreEqual("Macbeth", result[0]);
         }
@@ -96,7 +99,7 @@ namespace Tests
         [TestMethod]
         public void ValidInput_Hamlet()
         {
-            List<string> result = challenge.FilterByIsbnSnippet(this.books, "965-97887998");
+            List<string> result = challenge.FilterByIsbnSnippet(books, "965-97887998");
             Assert.AreEqual(1, result.Count);
             Assert.AreEqual("Hamlet", result[0]);
         }
@@ -104,21 +107,21 @@ namespace Tests
         [TestMethod]
         public void ReturnsEmptyArrayList()
         {
-            List<string> result = challenge.FilterByIsbnSnippet(this.books, "");
+            List<string> result = challenge.FilterByIsbnSnippet(books, "");
             Assert.AreEqual(emptyList, result);
         }
 
         [TestMethod]
         public void IncompleteIsbn_ReturnsEmptyArrayList()
         {
-            List<string> result = challenge.FilterByIsbnSnippet(this.books, "9");
+            List<string> result = challenge.FilterByIsbnSnippet(books, "9");
             Assert.AreEqual(emptyList, result);
         }
 
         [TestMethod]
         public void NonexistantIsbn_ReturnsEmptyArrayList()
         {
-            List<string> result = challenge.FilterByIsbnSnippet(this.books, "999-99999999");
+            List<string> result = challenge.FilterByIsbnSnippet(books, "999-99999999");
             Assert.AreEqual(emptyList, result);
         }
     }
@@ -151,7 +154,7 @@ namespace Tests
         [TestMethod]
         public void ValidInput_ReturnsEvenNumbers()
         {
-            List<int> result = challenge.LinqSortAndRemoveOddNumbers(this.data);
+            List<int> result = challenge.LinqSortAndRemoveOddNumbers(data);
             Assert.AreEqual(3, result.Count);
             Assert.AreEqual(10, result[0]);
             Assert.AreEqual(12, result[1]);
@@ -162,7 +165,7 @@ namespace Tests
         [TestMethod]
         public void InvalidInput()
         {
-            List<int> result = challenge.LinqSortAndRemoveOddNumbers(this.data);
+            List<int> result = challenge.LinqSortAndRemoveOddNumbers(data);
             Assert.AreNotEqual(0, result.Count);
             Assert.IsFalse(result.Contains(-7));
             Assert.IsFalse(result.Contains(55));
@@ -174,7 +177,7 @@ namespace Tests
 
 [TestClass]
 public class Test_WeeklyFemaleSubscribers
-    {
+{
     private Challenge challenge;
     private List<Subscriber> subscribers;
 
@@ -195,8 +198,9 @@ public class Test_WeeklyFemaleSubscribers
         Subscriber jane = new Subscriber("Jane", "female", 25);
         Subscriber linda = new Subscriber("Linda", "female", 67);
 
-    subscribers = new List<Subscriber>
-    { dave,
+        subscribers = new List<Subscriber>
+    {
+        dave,
         sandra,
         michaela,
         agnes,
@@ -207,43 +211,66 @@ public class Test_WeeklyFemaleSubscribers
         jane,
         linda
     };
-}
+    }
 
     [TestMethod]
     public void ValidInput()
     {
-        List<Subscriber> result = challenge.WeeklyFemaleSubscribers(this.subscribers);
+        List<Subscriber> result = challenge.WeeklyFemaleSubscribers(subscribers);
         Assert.AreEqual(3, result.Count);
-        Assert.AreEqual("Sandra", result[0].GetName());
-        Assert.AreEqual("Michaela", result[1].GetName());
-        Assert.AreEqual("Jane", result[2].GetName());
+        Assert.AreEqual("Sandra", result[0].Name);
+        Assert.AreEqual("Michaela", result[1].Name);
+        Assert.AreEqual("Jane", result[2].Name);
 
     }
 
     [TestMethod]
     public void ValidInput_ReturnsNonEmptyList()
     {
-    List<Subscriber> result = challenge.WeeklyFemaleSubscribers(this.subscribers);
-    int zero = 0;
-    int size = result.Count;
-    Assert.AreNotEqual(zero, size);
+        List<Subscriber> result = challenge.WeeklyFemaleSubscribers(subscribers);
+        int zero = 0;
+        int size = result.Count;
+        Assert.AreNotEqual(zero, size);
 
     }
 
     [TestMethod]
     public void ValidInput_ReturnsNoMen()
     {
-    List<Subscriber> result = challenge.WeeklyFemaleSubscribers(this.subscribers);
-    List<Subscriber> men = subscribers.FindAll(s => s.GetGender() == "male");
-    Assert.IsNull(result.Find(sub => sub.GetGender() == "male"));
+        List<Subscriber> result = challenge.WeeklyFemaleSubscribers(subscribers);
+        List<Subscriber> men = subscribers.FindAll(s => s.Gender == "male");
+        Assert.IsNull(result.Find(sub => sub.Gender == "male"));
 
     }
 
     [TestMethod]
     public void ValidInput_ReturnsNoOneOverForty()
     {
-    List<Subscriber> result = challenge.WeeklyFemaleSubscribers(this.subscribers);
-    Assert.IsNull(result.Find(sub => sub.GetAge() > 40));
+        List<Subscriber> result = challenge.WeeklyFemaleSubscribers(subscribers);
+        Assert.IsNull(result.Find(sub => sub.Age > 40));
 
+    }
+
+    [TestClass]
+    public class Test_Encryption
+    {
+        private Challenge challenge;
+        private string message;
+
+        [TestInitialize]
+        public void SetUp()
+        {
+            challenge = new Challenge();
+            message = "Beware the Ides of March";
+        }
+
+        [TestMethod]
+        public void ReturnsCorrectEncryption()
+        {
+            string result = challenge.Encryption(message);
+            Assert.AreEqual("orjner gur vqrf bs znepu", result);
+            Assert.AreNotEqual("orjnergurvqrfbsznepu", result);
+            Assert.AreNotEqual("Orjner gur Vqrf bs Znepu", result);
+        }
     }
 }

@@ -4,49 +4,20 @@
     public class Subscriber
     {
 
-        private string name;
-        private string gender;
-        private int age;
+        private string _name;
+        private string _gender;
+        private int _age;
 
         public Subscriber(string name, string gender, int age)
         {
-            this.name = name;
-            this.gender = gender;
-            this.age = age;
+            Name = name;
+            Gender = gender;
+            Age = age;
         }
 
-        public string GetName()
-        {
-            return name;
-        }
-
-        public void SetName(string name)
-        {
-            this.name = name;
-        }
-
-        public string GetGender()
-        {
-            return gender;
-        }
-
-        public void SetGender(string gender)
-        {
-            this.gender = gender;
-        }
-
-        public int GetAge()
-        {
-            return age;
-        }
-
-        public void SetAge(int age)
-        {
-            this.age = age;
-        }
-
-
-
+        public string Name { get; set; }
+        public string Gender { get; set; }
+        public int Age { get; set; }
     }
 }
 

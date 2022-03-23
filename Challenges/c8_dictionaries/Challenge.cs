@@ -7,6 +7,33 @@ namespace Challenges.c8_dictionaries
     {
         // -------------- FOUNDATION --------------
 
+        ///
+        /// <summary>
+        ///     Return the title of the book with the given complete isbn.
+        /// </summary>
+        /// <param name="books"> dictionary of books and corresponding isbn </param>
+        /// <param name="isbn"> given isbn string </param>
+        /// <returns> string - title of book with given isbn </returns>
+        /// 
+        public string FilterByIsbn(Dictionary<string, string> books, string isbn)
+        {
+            throw new NotImplementedException();
+        }
+        ///
+        /// <summary>
+        ///     Return the isbn of the book with the given title.
+        /// </summary>
+        /// <param name="books"> dictionary of books and corresponding isbn </param>
+        /// <param name="title"> given title string </param>
+        /// <returns> string - isbn of book with given title </returns>
+        /// 
+        public string FilterByTitle(Dictionary<string, string> books, string title)
+        {
+            throw new NotImplementedException();
+        }
+
+        // -------------- INTERMEDIATE --------------
+
         /// <summary>
         ///     Given a list of books with titles and isbn codes, convert to Dictionary with isbn as key and title as value.
         /// </summary>
@@ -14,7 +41,7 @@ namespace Challenges.c8_dictionaries
         /// @param bookList - List<Book> <param name="BookList"> List<Book> </param>
         ///
         /// 
-        /// @return HashMap<String isbn, String title> <returns> Dictionary<string isbn, string title> </returns>
+        /// @return Dictionary<string isbn, string title> <returns> Dictionary<string isbn, string title> </returns>
         ///
         public Dictionary<string, string> ConvertBookList(List<Book> BookList)
             {
@@ -30,24 +57,12 @@ namespace Challenges.c8_dictionaries
             {
             throw new NotImplementedException();
             }
-        ///
-        /// <summary>
-        ///     Iterate over the given Dictionary and return the title of the book with the given isbn code.
-        /// </summary>
-        /// <param name="books"> dictionary of books and corresponding isbn </param>
-        /// <param name="isbn"> given isbn string </param>
-        /// <returns> new list that contains isbn - if invalid return empty list </returns>
-        public string FilterByIsbnSnippet(Dictionary<string, string> books, string isbn)
-            {
-            throw new NotImplementedException();
-            }
-        // -------------- INTERMEDIATE --------------
 
         ///
         /// <summary>
-        ///    You are trying to gather data analytics for a weekly publication. You want to 
-        ///    convert a list of subscribers into a HashMap.
-        ///    Create a HashMap of female subscribers, where the key is the subscriber's name.
+        ///    You are trying to gather data analytics for your Youtube channel. You want to 
+        ///    convert a list of weekly subscribers into a Dictionary.
+        ///    Create a Dictionary of female subscribers, where the key is the subscriber's name.
         /// </summary>
         /// <param name="subscribers"> List of Subscriber Class </param>
         /// <returns> Dictionary<int age, string name> </returns>
@@ -60,11 +75,12 @@ namespace Challenges.c8_dictionaries
 
         ///
         /// <summary>
-        ///    Using a Dictionary, create a binary translator for the first 5 letters of the alphabet. If the letter doesn't exist, return -1
+        ///    Using the Dictionary cipher, decode the code phrase and discover the secret! Return the secret phrase as a string. 
         /// </summary>
-        /// <param name="letter"> the letter to be translated</param>
-        /// <returns> binary code translation </returns>
-        public int GetBinaryTranslation(char letter)
+        /// <param name="codePhrase"> the encoded phrase to be translated </param>
+        /// <param name="cipher"> the cipher with which to translate the phrase </param>
+        /// <returns> string - translated code phrase </returns>
+        public string DecodeTheSecretMessage(string codePhrase, Dictionary<string, string> cipher)
             {
             throw new NotImplementedException();
             }

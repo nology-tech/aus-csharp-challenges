@@ -54,7 +54,7 @@ namespace Tests
         public void ValidInputs_ReturnsSubList()
         {
 
-            List<String> result = challenge.GetSlicedArray(this.data, 1, 3);
+            List<string> result = challenge.GetSlicedArray(data, 1, 3);
             Assert.AreEqual("Sam", result[0]);
             Assert.AreEqual("Ollie", result[2]);
             Assert.AreEqual(3, result.Count);
@@ -64,7 +64,7 @@ namespace Tests
         public void InvalidInputs_ReturnsSubList()
         {
 
-            List<string> result = challenge.GetSlicedArray(this.data, 4, 6);
+            List<string> result = challenge.GetSlicedArray(data, 4, 6);
             Assert.AreEqual(0, result.Count);
         }
     }
@@ -96,8 +96,10 @@ namespace Tests
         [TestMethod]
         public void ValidInputs_ReturnsSwappedArray()
         {
-            List<string> result = challenge.SwapElements(this.data, 0, 3);
+            List<string> result = challenge.SwapElements(data, 0, 3);
             Assert.AreEqual("Ollie", result[0]);
+            Assert.AreEqual("Sam", result[1]);
+            Assert.AreEqual("Bex", result[2]);
             Assert.AreEqual("Andy", result[3]);
             Assert.AreEqual(4, result.Count);
         }
@@ -109,6 +111,8 @@ namespace Tests
 
         private Challenge challenge;
         private List<int> data2;
+        private List<int> odds;
+        private List<int> evens;
 
         [TestInitialize]
         public void SetUp()
@@ -122,15 +126,48 @@ namespace Tests
                 10,
                 12
             };
+
+            odds = new List<int>
+            {
+                3,
+                5,
+                9,
+                11,
+                13
+            };
+
+            evens = new List<int>
+            {
+                2,
+                4,
+                6,
+                8,
+                10
+            };
         }
 
 
         [TestMethod]
         public void ValidInput_ReturnsEvenNumbers()
         {
-            List<int> result = challenge.RemoveOddNumbers(this.data2);
+            List<int> result = challenge.RemoveOddNumbers(data2);
             Assert.AreEqual(2, result.Count);
             Assert.AreEqual(12, result[1]);
+        }
+
+        [TestMethod]
+        public void EntirelyOddList_ReturnsListUnchanged()
+        {
+            List<int> result = challenge.RemoveOddNumbers(odds);
+            Assert.AreEqual(odds, result);
+        }
+
+        [TestMethod]
+        public void EntirelyEvenList_ReturnsEmptyList()
+        {
+            List<int> result = challenge.RemoveOddNumbers(evens);
+            List<int> expected = new List<int> { };
+            Assert.AreEqual(expected, result);
         }
     }
 
@@ -140,6 +177,7 @@ namespace Tests
 
         private Challenge challenge;
         private List<string> data;
+        private List<string> data2;
 
         [TestInitialize]
         public void SetUp()
@@ -150,7 +188,19 @@ namespace Tests
                 "Andy",
                 "Sam",
                 "Bex",
+                "Ollie",
+                "Andy",
                 "Ollie"
+            };
+
+            data2 = new List<string>
+            {
+                "Andy",
+                "Andy",
+                "Andy",
+                "Andy",
+                "Andy",
+                "Andy"
             };
 
         }
@@ -158,14 +208,17 @@ namespace Tests
         [TestMethod]
         public void ValidInput_ReturnsDistinctList()
         {
-            this.data.Add("Andy");
-            this.data.Add("Ollie");
-            List<string> result = challenge.GetUniqueItems(this.data);
-            Assert.AreEqual(4, result.Count);
-            Assert.AreEqual("Andy", result[0]);
-            Assert.AreEqual("Sam", result[1]);
-            Assert.AreEqual("Bex", result[2]);
-            Assert.AreEqual("Ollie", result[3]);
+            List<string> result = challenge.GetUniqueItems(data);
+            Assert.AreEqual(2, result.Count);
+            Assert.AreEqual("Sam", result[0]);
+            Assert.AreEqual("Bex", result[1]);
+        }
+
+        [TestMethod]
+        public void ListWithNoDistinctValue_ReturnsEmpty()
+        {
+            List<string> result = challenge.GetUniqueItems(data);
+            Assert.AreEqual(0, result.Count);
         }
     }
 
@@ -194,7 +247,6 @@ namespace Tests
         [TestMethod]
         public void ValidArray_ReturnsIndexOfSearchItem()
         {
-
 
             int result = challenge.FindItem(testData, 12);
             Assert.AreEqual(1, result);

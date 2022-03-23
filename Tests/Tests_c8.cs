@@ -5,6 +5,140 @@ using System.Collections.Generic;
 namespace Tests
 {
     [TestClass]
+    public class Test_FilterByIsbn
+    {
+
+        private Challenge challenge;
+        private Dictionary<string, string> books;
+
+        [TestInitialize]
+        public void SetUp()
+        {
+            challenge = new Challenge();
+
+            books = new Dictionary<string, string>
+            {
+                { "978-19283756", "Macbeth" },
+                { "978-99112288", "A Midsummer Night's Dream" },
+                { "965-97887998", "Hamlet" },
+                { "954-12345678", "Othello" },
+                { "978-19283746", "King Lear" }
+            };
+        }
+
+        [TestMethod]
+        public void ValidInput_KingLear()
+        {
+            string result = challenge.FilterByIsbn(books, "978-19283746");
+            Assert.AreEqual("King Lear", result);
+
+
+        }
+
+        [TestMethod]
+        public void ValidInput_Macbeth()
+        {
+            string result = challenge.FilterByIsbn(books, "978-19283756");
+            Assert.AreEqual("Macbeth", result);
+        }
+
+        [TestMethod]
+        public void ValidInput_Hamlet()
+        {
+            string result = challenge.FilterByIsbn(books, "965-97887998");
+            Assert.AreEqual("Hamlet", result);
+        }
+
+        [TestMethod]
+        public void InvalidInput_ReturnsEmptyArrayList()
+        {
+            string result = challenge.FilterByIsbn(books, "");
+            Assert.AreEqual(null, result);
+        }
+
+        [TestMethod]
+        public void IncompleteIsbn_ReturnsEmptyArrayList()
+        {
+            string result = challenge.FilterByIsbn(this.books, "9");
+            Assert.AreEqual(null, result);
+        }
+
+        [TestMethod]
+        public void NonexistantIsbn_ReturnsEmptyArrayList()
+        {
+            string result = challenge.FilterByIsbn(this.books, "999-99999999");
+            Assert.AreEqual(null, result);
+        }
+    }
+
+    [TestClass]
+    public class Test_FilterByTitle
+    {
+
+        private Challenge challenge;
+        private Dictionary<string, string> books;
+
+        [TestInitialize]
+        public void SetUp()
+        {
+            challenge = new Challenge();
+
+            books = new Dictionary<string, string>
+            {
+                { "978-19283756", "Macbeth" },
+                { "978-99112288", "A Midsummer Night's Dream" },
+                { "965-97887998", "Hamlet" },
+                { "954-12345678", "Othello" },
+                { "978-19283746", "King Lear" }
+            };
+        }
+
+        [TestMethod]
+        public void ValidInput_KingLear()
+        {
+            string result = challenge.FilterByIsbn(books, "King Lear");
+            Assert.AreEqual("978-19283746", result);
+
+
+        }
+
+        [TestMethod]
+        public void ValidInput_Macbeth()
+        {
+            string result = challenge.FilterByIsbn(books, "Macbeth");
+            Assert.AreEqual("978-19283756", result);
+        }
+
+        [TestMethod]
+        public void ValidInput_Hamlet()
+        {
+            string result = challenge.FilterByIsbn(books, "Hamlet");
+            Assert.AreEqual("965-97887998", result);
+        }
+
+        [TestMethod]
+        public void InvalidInput_ReturnsEmptyArrayList()
+        {
+            string result = challenge.FilterByIsbn(books, "");
+            Assert.AreEqual(null, result);
+        }
+
+        [TestMethod]
+        public void IncompleteIsbn_ReturnsEmptyArrayList()
+        {
+            string result = challenge.FilterByIsbn(this.books, "Schmamlet");
+            Assert.AreEqual(null, result);
+        }
+
+        [TestMethod]
+        public void NonexistantIsbn_ReturnsEmptyArrayList()
+        {
+            string result = challenge.FilterByIsbn(this.books, "Schming Schmear");
+            Assert.AreEqual(null, result);
+        }
+    }
+
+    [TestClass]
     public class Test_ConvertBookList
     {
 
@@ -121,71 +255,6 @@ namespace Tests
 
     }
 
-    [TestClass]
-    public class Test_FilterByIsbn {
-
-        private Challenge challenge;
-        private Dictionary<string, string> books;
-
-        [TestInitialize]
-        public void SetUp()
-        {
-            challenge = new Challenge();
-
-            books = new Dictionary<string, string>
-            {
-                { "978-19283756", "Macbeth" },
-                { "978-99112288", "A Midsummer Night's Dream" },
-                { "965-97887998", "Hamlet" },
-                { "954-12345678", "Othello" },
-                { "978-19283746", "King Lear" }
-            };
-        }
-
-        [TestMethod]
-        public void ValidInput_KingLear()
-        {
-            string result = challenge.FilterByIsbnSnippet(this.books, "978-19283746");
-            Assert.AreEqual("King Lear", result);
-
-
-        }
-
-        [TestMethod]
-        public void ValidInput_Macbeth()
-        {
-            string result = challenge.FilterByIsbnSnippet(this.books, "978-19283756");
-            Assert.AreEqual("Macbeth", result);
-        }
-
-        [TestMethod]
-        public void ValidInput_Hamlet()
-        {
-            string result = challenge.FilterByIsbnSnippet(this.books, "965-97887998");
-            Assert.AreEqual("Hamlet", result);
-        }
-
-        [TestMethod]
-        public void InvalidInput_ReturnsEmptyArrayList()
-        {
-            string result = challenge.FilterByIsbnSnippet(this.books, "");
-            Assert.AreEqual(null, result);
-        }
-
-        [TestMethod]
-        public void IncompleteIsbn_ReturnsEmptyArrayList()
-        {
-            string result = challenge.FilterByIsbnSnippet(this.books, "9");
-            Assert.AreEqual(null, result);
-        }
-
-        [TestMethod]
-        public void NonexistantIsbn_ReturnsEmptyArrayList()
-        {
-            string result = challenge.FilterByIsbnSnippet(this.books, "999-99999999");
-            Assert.AreEqual(null, result);
-        }
-    }
 
     [TestClass]
     public class Test_WeeklyFemaleSubscribers
@@ -250,52 +319,44 @@ namespace Tests
     }
 
     [TestClass]
-    public class Test_GetBinaryTranslation
+    public class Test_DecodeTheSecretMessage
     {
 
         private Challenge challenge;
+        private Dictionary<string, string> cipher;
+        private string codePhrase;
 
         [TestInitialize]
         public void SetUp()
         {
             challenge = new Challenge();
+            cipher = new Dictionary<string, string>
+            {
+                {"x", "d"},
+                {"q", "r"},
+                {"g", "i"},
+                {"r", "n"},
+                {"h", "k"},
+                {"l", "m"},
+                {"p", "o"},
+                {"a", "e"},
+                {"w", "v"},
+                {"e", "a"},
+                {"b", "l"},
+                {"v", "t"},
+                {"g", "i"},
+                {"y", "n"},
+
+            };
+
+            codePhrase = "xqgrh lpqa pwebvgya";
         }
 
         [TestMethod]
-        public void ValidLetter_ReturnsBinary()
+        public void ValidInput_PrintsDecodedPhrase()
         {
-            int result = challenge.GetBinaryTranslation('A');
-            Assert.AreEqual(01100001, result);
-            result = challenge.GetBinaryTranslation('a');
-            Assert.AreEqual(01100001, result);
-            result = challenge.GetBinaryTranslation('B');
-            Assert.AreEqual(01100010, result);
-            result = challenge.GetBinaryTranslation('C');
-            Assert.AreEqual(01100011, result);
-            result = challenge.GetBinaryTranslation('D');
-            Assert.AreEqual(01100100, result);
-            result = challenge.GetBinaryTranslation('E');
-            Assert.AreEqual(01100101, result);
+            string result = challenge.DecodeTheSecretMessage(codePhrase, cipher);
+            Assert.AreEqual(result, "drink more ovaltine");
         }
-
-        [TestMethod]
-        public void InvalidLetters_ReturnsNegOne()
-        {
-            int result = challenge.GetBinaryTranslation('z');
-            Assert.AreEqual(-1, (int)result);
-            int result2 = challenge.GetBinaryTranslation('y');
-            Assert.AreEqual(-1, (int)result2);
-            int result4 = challenge.GetBinaryTranslation('q');
-            Assert.AreEqual(-1, (int)result4);
-            int result5 = challenge.GetBinaryTranslation('r');
-            Assert.AreEqual(-1, (int)result5);
-            int result6 = challenge.GetBinaryTranslation('s');
-            Assert.AreEqual(-1, (int)result6);
-            int result7 = challenge.GetBinaryTranslation('t');
-            Assert.AreEqual(-1, (int)result7);
-            int result8 = challenge.GetBinaryTranslation('9');
-            Assert.AreEqual(-1, (int)result8);
-        }
-
     }
 }

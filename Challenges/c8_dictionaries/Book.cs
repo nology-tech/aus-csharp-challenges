@@ -3,36 +3,21 @@ namespace Challenges.c8_dictionaries
 {
     public class Book
     {
-        public Book() { }
 
-        private string isbn;
-        private string title;
+        private string _isbn;
+        private string _title;
+
+        public Book() { }
 
         public Book(string isbn, string title)
         {
-            SetIsbn(isbn);
-            SetTitle(title);
+            Isbn = isbn;
+            Title = title;
+
         }
 
-        public string GetIsbn()
-        {
-            return isbn;
-        }
+        public string Title { get; set; }
+        public string Isbn { get; set; }
 
-        public void SetIsbn(string isbn)
-        {
-            this.isbn = isbn;
-        }
-
-        public string GetTitle()
-        {
-             return title;
-        }
-
-        public void SetTitle(string title)
-        {
-            this.title = title;
-        }
     }
 }
-

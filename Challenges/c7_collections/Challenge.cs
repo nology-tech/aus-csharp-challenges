@@ -41,7 +41,7 @@ namespace Challenges.c7_collections
 
         ///
         /// <summary>
-        ///     Swaps two items in an array
+        ///     Swaps two items and only those two items in an array
         /// </summary>
         /// <param name="items"> - list in which we are swapping elements </param>
         /// <param name="first"> - first Index </param>
@@ -87,6 +87,7 @@ namespace Challenges.c7_collections
         ///     else if the searchItem is greater than the middle, repeat the same process in the top half of the array, and vice versa for
         ///     the lower half if the searchItem is less than the middle
         ///
+        ///     NOTE: binary search algorithms ONLY work on sorted arrays 
         ///     EXTENSION: Once you've completed this without recursion. Consider how this could be done using recursion, you can even alter the method declaration ;)
         /// </summary>
         /// <param name="sortedArr"></param>

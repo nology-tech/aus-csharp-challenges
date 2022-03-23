@@ -91,8 +91,8 @@ namespace Tests
                 {0, -1, -1},
                 {1, -1, -1}};
 
-            float result = challenge.CalculateMovesPercentage(game);
-            Assert.AreEqual(33, Math.Round(result));
+            int result = challenge.CalculateMovesPercentage(game);
+            Assert.AreEqual(33, result);
         }
 
         [TestMethod]
@@ -102,8 +102,8 @@ namespace Tests
                 {-1, -1, -1},
                 {-1, -1, -1}};
 
-            float result = challenge.CalculateMovesPercentage(game);
-            Assert.AreEqual(0, Math.Round(result));
+            int result = challenge.CalculateMovesPercentage(game);
+            Assert.AreEqual(0, result);
         }
 
         [TestMethod]
@@ -113,8 +113,8 @@ namespace Tests
                 {1, 1, 0},
                 {0, 1, 0}};
 
-            float result = challenge.CalculateMovesPercentage(game);
-            Assert.AreEqual(100, Math.Round(result));
+            int result = challenge.CalculateMovesPercentage(game);
+            Assert.AreEqual(100, result);
         }
     }
     // -------------- INTERMEDIATE --------------

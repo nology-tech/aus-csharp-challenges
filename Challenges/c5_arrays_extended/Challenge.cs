@@ -45,12 +45,12 @@ namespace Challenges.c5_arrays_extended
         }
 
         /// <summary>
-        ///     Calculate percentage of used squares in the given game.
+        ///     Calculate percentage of used squares in the given game. Return an int of the rounded percentage. 
         /// </summary>
         ///
         /// <param name="game"> Two Dimensional arrays contains -1 (No Move), 0 (Naught), 1 (Cross) </param>
-        /// <returns> float the percentage of used squares </returns>
-        public float CalculateMovesPercentage(int[,] game)
+        /// <returns> int - the percentage of used squares </returns>
+        public int CalculateMovesPercentage(int[,] game)
         {
             throw new NotImplementedException();
         }
