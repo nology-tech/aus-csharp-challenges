@@ -78,26 +78,6 @@ namespace Challenges.c9_forEach_and_linq
 
 
         // -------------- ADVANCED --------------
-
-        /// <summary>
-        ///     Use LINQ to iterate over a given string and encrypt that messeage using a Caeser cipher.
-        ///     Caesar ciphers shift every letter 13 places forward in the alphabet.
-        ///     If the letter is shifted from Z, it will continue in a loop back to A.
-        ///
-        ///     Maintain the spacing and punctuation of the original message,
-        ///     do not shift numbers,
-        ///     and lower the case of the string before encrypting. 
-        ///     
-        /// </summary>
-        /// <param name="message">  string - message to be decrypted </param>
-        /// <returns>
-        ///     string - encrypted message
-        /// </returns>
-        ///
-
-        public string Encryption(string message)
-        {
-            return string.Empty;
-        }
+        // waiting for Aidan's tender touch 
     }
 }

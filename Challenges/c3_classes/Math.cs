@@ -12,6 +12,7 @@ namespace Challenges.c3_classes
     /// This is a skeleton of a class you will have to complete it by following these steps.
     /// 
     /// - Implement getters and setters
+    /// - Getters & Setters in C#: https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/using-properties
     /// - Implementing three methods
     ///
     /// Each step is documented through the class.
@@ -21,12 +22,6 @@ namespace Challenges.c3_classes
 
     public static class Math
     {
-
-        ///
-        /// Each field should have a public setter & getter
-        /// Getters & Setters in C#: https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/using-properties
-        ///
-
         ///
         /// Complete the min method
         ///

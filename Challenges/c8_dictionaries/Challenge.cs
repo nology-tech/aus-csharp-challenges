@@ -37,11 +37,10 @@ namespace Challenges.c8_dictionaries
         /// <summary>
         ///     Given a list of books with titles and isbn codes, convert to Dictionary with isbn as key and title as value.
         /// </summary>
-        ///
-        /// @param bookList - List<Book> <param name="BookList"> List<Book> </param>
-        ///
         /// 
-        /// @return Dictionary<string isbn, string title> <returns> Dictionary<string isbn, string title> </returns>
+        /// <param name="BookList"> List<Book> </param>
+        ///
+        /// <returns> Dictionary<string isbn, string title> </returns>
         ///
         public Dictionary<string, string> ConvertBookList(List<Book> BookList)
             {

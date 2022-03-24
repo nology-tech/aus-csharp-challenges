@@ -63,8 +63,8 @@ namespace Challenges.c4_arrays_and_loops
         ///     the middle name. e.g -> "Alexander Graham Bell" -> "Bell Graham Alexander" 
         /// </summary>
         /// 
-        /// <param name="fullName"> e.g. "Andy Evans" or "Jane Doe Smith" </param>
-        /// <returns> a string with the last name, followed by the first name e.g. "Evans Andy" or "Smith Doe Jane"</returns>
+        /// <param name="fullName"> e.g. "Andy Evans" or "Jane Doe Smith" or "Louis Charles Philippe Raphaël d'Orléans" </param>
+        /// <returns> a string with the last name, followed by the first name e.g. "Evans Andy" or "Smith Doe Jane" or "d'Orléans Charles Philippe Raphaël Louis"</returns>
         ///
         public string SwapNames(string fullName)
         {
@@ -131,5 +131,27 @@ namespace Challenges.c4_arrays_and_loops
         {
             throw new NotImplementedException();
         }
+
+        /// <summary>
+        ///     Iterate over a given string and encrypt that messeage using a Caeser cipher.
+        ///     Caesar ciphers shift every letter 13 places forward in the alphabet.
+        ///     If the letter is shifted from Z, it will continue in a loop back to A.
+        ///
+        ///     Maintain the spacing and punctuation of the original message,
+        ///     do not shift numbers,
+        ///     and lower the case of the string before encrypting. 
+        ///     
+        /// </summary>
+        /// <param name="message">  string - message to be decrypted </param>
+        /// <returns>
+        ///     string - encrypted message
+        /// </returns>
+        ///
+
+        public string Encryption(string message)
+        {
+            return string.Empty;
+        }
+
     }
 }

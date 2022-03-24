@@ -22,9 +22,9 @@ namespace Challenges.c3_classes
         /// Create 4 public fields:
         ///- name is a string
         /// - position is a string
-        /// - rating is an int
-        /// - yearsEmployed is an int
-        ///- completedDeals is an int
+        /// - rating is an integer
+        /// - yearsEmployed is an integer
+        ///- completedDeals is an integer
         ///
 
         ///
