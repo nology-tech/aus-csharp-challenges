@@ -14,6 +14,7 @@
     <None Remove="c7_collections\" />
     <None Remove="c8_dictionaries\" />
     <None Remove="c9_forEach_and_linq\" />
+    <None Remove="Challenge Classes\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="c2_control_flow_extended\" />
@@ -24,5 +25,6 @@
     <Folder Include="c7_collections\" />
     <Folder Include="c8_dictionaries\" />
     <Folder Include="c9_forEach_and_linq\" />
+    <Folder Include="Challenge_Classes\" />
   </ItemGroup>
 </Project>

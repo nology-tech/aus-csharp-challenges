@@ -1,5 +1,5 @@
 ﻿using System;
-namespace Challenges.c9_forEach_and_linq
+namespace Challenges
 {
 
     public class Employee

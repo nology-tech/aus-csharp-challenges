@@ -116,7 +116,6 @@ namespace Challenges.c5_arrays_extended
         /// <returns> The player that won, or -1 if no winner </returns>
         public int GetWinningPlayer(int[,] game)
         {
-            // ..... Who can solve this? ;)
             throw new NotImplementedException();
         }
     }

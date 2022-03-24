@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Challenges.c8_dictionaries;
 using System.Collections.Generic;
+using Challenges;
 
 namespace Tests
 {
@@ -269,16 +270,16 @@ namespace Tests
         {
             challenge = new Challenge();
 
-            Subscriber dave = new Subscriber("Dave", "male", 25);
-            Subscriber sandra = new Subscriber("Sandra", "female", 25);
-            Subscriber michaela = new Subscriber("Michaela", "female", 23);
-            Subscriber agnes = new Subscriber("Agnes", "female", 41);
-            Subscriber will = new Subscriber("Will", "male", 40);
-            Subscriber hubert = new Subscriber("Hubert", "male", 33);
-            Subscriber steve = new Subscriber("Steve", "male", 24);
-            Subscriber cam = new Subscriber("Cam", "male", 55);
-            Subscriber jane = new Subscriber("Jane", "female", 25);
-            Subscriber linda = new Subscriber("Linda", "female", 67);
+            Subscriber dave = new Subscriber("dave", "male", 25, 1647471725); // Mar 17
+            Subscriber sandra = new Subscriber("Sandra", "female", 25, 1645988460); //Feb 28 
+            Subscriber michaela = new Subscriber("Michaela", "female", 23, 1647813765); // Mar 21
+            Subscriber agnes = new Subscriber("Agnes", "female", 40, 1647903725); // Mar 22
+            Subscriber will = new Subscriber("Will", "male", 40, 1645052525); // Feb 17
+            Subscriber hubert = new Subscriber("Hubert", "male", 33, 1643576703); // Jan 31
+            Subscriber steve = new Subscriber("Steve", "male", 24, 1643673788); // Feb 01
+            Subscriber cam = new Subscriber("Cam", "male", 55, 1646352188); // Mar 04
+            Subscriber jane = new Subscriber("Jane", "female", 25, 1641783600); //Jan 10 
+            Subscriber linda = new Subscriber("Linda", "female", 67, 1647111660); // Mar 13
 
             subscribers = new List<Subscriber>();
             subscribers.Add(dave);
@@ -295,7 +296,7 @@ namespace Tests
         [TestMethod]
         public void ValidInput()
         {
-            Dictionary<string, int> result = challenge.WeeklyFemaleSubscribers(this.subscribers);
+            Dictionary<string, int> result = challenge.FemaleSubscribers(this.subscribers);
             Assert.IsNotNull(result);
             Assert.IsTrue(result.GetType() == typeof(Dictionary<string, int>));
             Assert.IsTrue(result.ContainsKey("Sandra"));
@@ -308,7 +309,7 @@ namespace Tests
         [TestMethod]
         public void ValidInput_ReturnsNoMen()
         {
-            Dictionary<string, int> result = challenge.WeeklyFemaleSubscribers(this.subscribers);
+            Dictionary<string, int> result = challenge.FemaleSubscribers(this.subscribers);
             Assert.IsFalse(result.ContainsKey("Dave"));
             Assert.IsFalse(result.ContainsKey("Will"));
             Assert.IsFalse(result.ContainsKey("Hubert"));
@@ -325,6 +326,10 @@ namespace Tests
         private Challenge challenge;
         private Dictionary<string, string> cipher;
         private string codePhrase;
+        private Dictionary<string, string> cipher2;
+        private string codePhrase2;
+        private Dictionary<string, string> cipher3;
+        private string codePhrase3;
 
         [TestInitialize]
         public void SetUp()
@@ -350,13 +355,50 @@ namespace Tests
             };
 
             codePhrase = "xqgrh lpqa pwebvgya";
+
+            cipher2 = new Dictionary<string, string>
+            {
+                {"x", "r" },
+                {"c", "t"},
+                {"y", "b" }
+            };
+
+            codePhrase2 = "xcy";
+
+            cipher3 = new Dictionary<string, string>
+            {
+                {"c", "c" },
+                {"a", "a"},
+                {"t", "t" }
+            };
+
+            codePhrase3 = "cat";
         }
 
         [TestMethod]
         public void ValidInput_PrintsDecodedPhrase()
         {
             string result = challenge.DecodeTheSecretMessage(codePhrase, cipher);
+            Assert.IsNotNull(result);
             Assert.AreEqual(result, "drink more ovaltine");
+        }
+
+        [TestMethod]
+        public void ValidInput_Gibberish()
+        {
+
+            string result = challenge.DecodeTheSecretMessage(codePhrase2, cipher2);
+            Assert.IsNotNull(result);
+            Assert.AreEqual(result, "rtb");
+        }
+
+        [TestMethod]
+        public void ValidInput_SameLetters()
+        {
+
+            string result = challenge.DecodeTheSecretMessage(codePhrase3, cipher3);
+            Assert.IsNotNull(result);
+            Assert.AreEqual(result, "cat");
         }
     }
 }

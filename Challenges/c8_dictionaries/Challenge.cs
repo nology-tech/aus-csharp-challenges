@@ -61,12 +61,12 @@ namespace Challenges.c8_dictionaries
         ///
         /// <summary>
         ///    You are trying to gather data analytics for your Youtube channel. You want to 
-        ///    convert a list of weekly subscribers into a Dictionary.
+        ///    convert a list of this year's subscribers into a Dictionary.
         ///    Create a Dictionary of female subscribers, where the key is the subscriber's name.
         /// </summary>
         /// <param name="subscribers"> List of Subscriber Class </param>
         /// <returns> Dictionary<int age, string name> </returns>
-        public Dictionary<string, int> WeeklyFemaleSubscribers(List<Subscriber> subscribers)
+        public Dictionary<string, int> FemaleSubscribers(List<Subscriber> subscribers)
             {
             throw new NotImplementedException();
             }
