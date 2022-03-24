@@ -24,7 +24,7 @@ namespace Challenges.c1_types_and_control_flow
         /// </summary>
         /// <param name="string1"></param>
         /// <param name="string2"></param>
-        /// <returns></returns>
+        /// <returns> whichever string is longest - or if they are equal "These two are the same length" </returns>
         public string FindLongestString(string string1, string string2)
         {
             throw new NotImplementedException();

@@ -59,7 +59,7 @@ namespace Tests
         public void InvalidInput_ReturnsFalseOutOfRange()
         {
             bool result = challenge.IsWithinRange(600, 20);
-            Assert.IsTrue(result);
+            Assert.IsFalse(result);
         }
 
         [TestMethod]
@@ -164,14 +164,14 @@ namespace Tests
         public void ValidInput_ReturnsFalseNotAfterTen()
         {
             bool result = challenge.ShouldWakeUp(true, 22);
-            Assert.IsFalse(result);
+            Assert.IsTrue(result);
         }
 
         [TestMethod]
         public void ValidInput_ReturnsFalseNotBeforeEight()
         {
             bool result = challenge.ShouldWakeUp(true, 8);
-            Assert.IsFalse(result);
+            Assert.IsTrue(result);
         }
 
         [TestMethod]
@@ -265,7 +265,7 @@ namespace Tests
         public void InvalidInputs_ReturnsInvalidMessage()
         {
             String result = challenge.PrintMegaBytesAndKiloBytes(-2220);
-            Assert.AreEqual("Invalid Value", result);
+            Assert.AreEqual("Invalid value", result);
         }
     }
 

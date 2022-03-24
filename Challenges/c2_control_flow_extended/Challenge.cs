@@ -39,7 +39,7 @@ namespace Challenges.c2_control_flow_extended
         /// <param name="numberTwo"> the second number in the equation </param>
         /// <param name="op"> the operator to complete the equation </param>
         /// <returns> the result of the equation </returns>
-        public int StringCalculator(int numberOne, int numberTwo, String op)
+        public int StringCalculator(int numberOne, int numberTwo, string op)
         {
             throw new NotImplementedException();
         }
@@ -47,16 +47,16 @@ namespace Challenges.c2_control_flow_extended
         // -------------- INTERMEDIATE --------------
 
         /// <summary>
-        ///     We have a dog that likes to bark. We need to wake up if the dog is barking at night!
-        ///     This method should return true or false if we need to wake up or not.
+        ///     We have a dog that likes to bark. We will wake up if the dog is barking at night!
+        ///     This method should return true or false if we will wake up or not.
         ///
-        ///     If the dog is barking before 8 or after 22 hours we need to wake up.
-        ///     All other cases we do not need to wake up.
-        ///     If the hourOfDay is not within 0 - 23 we do not need to wake up.
+        ///     If the hourOfDay is <= 8 OR >= 22 AND the dog is barking, we should wake up. 
+        ///     In all other cases we do not need to wake up.
+        ///     If the hourOfDay is not within the valid range of 0 - 23, return false.
         /// </summary>
-        /// <param name="barking"> boolean it represents if our dog is currently barking or not. </param>
-        /// <param name="hourOfDay"> the hour of the day and is of type int with the name hourOfDay and has a valid range of 0-23. </param>
-        /// <returns> If we need to wake up or not based on the conditions above. </returns>
+        /// <param name="barking"> bool - represents if our dog is currently barking or not. </param>
+        /// <param name="hourOfDay"> int - the hour of the day with a valid range of 0-23. </param>
+        /// <returns> bool - If we need to wake up or not based on the conditions above. </returns>
         public bool ShouldWakeUp(bool barking, int hourOfDay)
         {
             throw new NotImplementedException();
@@ -80,6 +80,7 @@ namespace Challenges.c2_control_flow_extended
         ///
         ///     If the kiloBytes param is less than 0 return "Invalid value"
         ///     1 megaByte = 1024 kiloBytes
+        ///     
         /// </summary>
         /// <param name="kiloBytes"> the number of kilobytes to be converted </param>
         /// <returns> a string in the format above if the input is valid, or "Invalid value" </returns>
@@ -99,13 +100,16 @@ namespace Challenges.c2_control_flow_extended
         ///     If years is less than or equal 0 return "Invalid years"
         ///     If rateOfInterest is less than 0 or greater than or equal to 1 return "Invalid rate of interest"
         ///
-        ///     HINT: https://www.w3schools.com/java/java_for_loop.asp
+        ///     
         /// </summary>
-        /// <param name="initialInvestment"> the starting value </param>
-        /// <param name="years"> the number of years that the investment will take </param>
-        /// <param name="rateOfInterest"> the rate at which, each year, the investment will increase by </param>
-        /// <returns> the total amount after x number of years (including the initial investment) </returns>
-        public string CalculateReturn(int initialInvestment, int years, double rateOfInterest)
+        /// <param name="initialInvestment"> double - the starting value </param>
+        /// <param name="years"> int - the number of years that the investment will take </param>
+        /// <param name="rateOfInterest"> double - the rate at which, each year, the investment will increase by </param>
+        /// <returns>
+        ///     the total amount after x number of years (including the initial investment) to 2 floating points
+        ///     ex) -> 'You now have 2593.74'
+        /// </returns>
+        public string CalculateReturn(double initialInvestment, int years, double rateOfInterest)
         {
             throw new NotImplementedException();
         }

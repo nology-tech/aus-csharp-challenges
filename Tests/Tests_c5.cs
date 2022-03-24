@@ -91,8 +91,8 @@ namespace Tests
                 {0, -1, -1},
                 {1, -1, -1}};
 
-            float result = challenge.CalculateMovesPercentage(game);
-            Assert.AreEqual(33, Math.Round(result));
+            int result = challenge.CalculateMovesPercentage(game);
+            Assert.AreEqual(33, result);
         }
 
         [TestMethod]
@@ -102,8 +102,8 @@ namespace Tests
                 {-1, -1, -1},
                 {-1, -1, -1}};
 
-            float result = challenge.CalculateMovesPercentage(game);
-            Assert.AreEqual(0, Math.Round(result));
+            int result = challenge.CalculateMovesPercentage(game);
+            Assert.AreEqual(0, result);
         }
 
         [TestMethod]
@@ -113,8 +113,8 @@ namespace Tests
                 {1, 1, 0},
                 {0, 1, 0}};
 
-            float result = challenge.CalculateMovesPercentage(game);
-            Assert.AreEqual(100, Math.Round(result));
+            int result = challenge.CalculateMovesPercentage(game);
+            Assert.AreEqual(100, result);
         }
     }
     // -------------- INTERMEDIATE --------------
@@ -301,6 +301,74 @@ namespace Tests
 
             bool result = challenge.HasPlayerWonDiagonally(game, 0);
             Assert.IsFalse(result);
+        }
+    }
+
+    [TestClass]
+    public class Test_GetWinningPlayer
+    {
+        private Challenge challenge;
+
+        [TestInitialize]
+        public void SetUp()
+        {
+            challenge = new Challenge();
+        }
+
+        [TestMethod]
+        public void ValidWinNoughts_ReturnsNought()
+        {
+            int[,] game = {{0, 1, 0},
+                {0, 0, 1},
+                {0, 1, 0}};
+
+            int result = challenge.GetWinningPlayer(game);
+            Assert.AreEqual(result, 0);
+        }
+
+        [TestMethod]
+        public void ValidWinNoughtsDiagonal_ReturnsNought()
+        {
+            int[,] game = {{1, 1, 0},
+                {0, 0, 1},
+                {0, 1, 0}};
+
+            int result = challenge.GetWinningPlayer(game);
+            Assert.AreEqual(result, 0);
+        }
+
+
+        [TestMethod]
+        public void ValidWinCrosses_ReturnsOne()
+        {
+            int[,] game = {{0, 1, 0},
+                {1, 1, 0},
+                {0, 1, 0}};
+
+            int result = challenge.GetWinningPlayer(game);
+            Assert.AreEqual(result, 1);
+        }
+
+        [TestMethod]
+        public void ValidWinCrossesDiagonal_ReturnsOne()
+        {
+            int[,] game = {{0, 0, 1},
+                {0, 1, 0},
+                {1, 1, 0}};
+
+            int result = challenge.GetWinningPlayer(game);
+            Assert.AreEqual(result, 1);
+        }
+
+        [TestMethod]
+        public void NoWinner_ReturnsNegOne()
+        {
+            int[,] game = {{0, 0, 1},
+                {0, 1, 0},
+                {1, 1, 0}};
+
+            int result = challenge.GetWinningPlayer(game);
+            Assert.AreEqual(result, -1);
         }
     }
 }

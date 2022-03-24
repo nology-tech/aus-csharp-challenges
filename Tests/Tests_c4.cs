@@ -149,6 +149,8 @@ namespace Tests
             Assert.AreEqual("Evans Andy", result);
             string result2 = challenge.SwapNames("Jane Doe Smith");
             Assert.AreEqual("Smith Doe Jane", result2);
+            string result3 = challenge.SwapNames("Louis Charles Philippe Raphaël d'Orléans");
+            Assert.AreEqual("d'Orléans Charles Philippe Raphaël Louis", result3);
         }
 
         [TestMethod]
@@ -185,6 +187,13 @@ namespace Tests
         {
             bool result = challenge.IsHighestScore(new int[0], 12);
             Assert.IsTrue(result);
+        }
+
+        [TestMethod]
+        public void MatchingHighScores_ReturnsFalse()
+        {
+            bool result = challenge.IsHighestScore(new int[] { 3, 4, 10, 10, 6, 9 }, 10);
+            Assert.IsFalse(result);
         }
     }
 
@@ -225,6 +234,55 @@ namespace Tests
         {
             int[] result = challenge.Sort(new int[0]);
             CollectionAssert.AreEqual(new int[0], result);
+        }
+    }
+
+    [TestClass]
+    public class Test_Encryption
+    {
+        private Challenge challenge;
+        private string message;
+        private string message2;
+
+        [TestInitialize]
+        public void SetUp()
+        {
+            challenge = new Challenge();
+            message = "Beware the Ides of March";
+            message2 = "If he had anything confidential to say, he wrote it in cipher, that is," +
+                " by so changing the order of the letters of the alphabet, that not a word could be made out.";
+        }
+
+        [TestMethod]
+        public void ReturnsCorrectEncryption()
+        {
+            string result = challenge.Encryption(message);
+            Assert.AreEqual("orjner gur vqrf bs znepu", result);
+            Assert.AreNotEqual("orjnergurvqrfbsznepu", result);
+            Assert.AreNotEqual("Orjner gur Vqrf bs Znepu", result);
+        }
+
+        [TestMethod]
+        public void ReturnsCorrectEncryptionPunctuation()
+        {
+            string result = challenge.Encryption(message2);
+            Assert.AreEqual("Vs ur unq nalguvat pbasvqragvny gb fnl, ur jebgr vg va pvcure, gung vf, ol fb punatvat gur beqre bs gur yrggref bs gur nycunorg, gung abg n jbeq pbhyq or znqr bhg."
+                , result);
+        }
+
+
+        [TestMethod]
+        public void EmptyEncryptionReturnsEmpty()
+        {
+            string result = challenge.Encryption(message2);
+            Assert.AreEqual(string.Empty, result);
+        }
+
+        [TestMethod]
+        public void ValidEncryptionWithNumbersReturnsNumbersUnchanged()
+        {
+            string result = challenge.Encryption("99 is 1 less than 100.");
+            Assert.AreEqual("99 vf 1 yrff guna 100.", result);
         }
     }
 }
