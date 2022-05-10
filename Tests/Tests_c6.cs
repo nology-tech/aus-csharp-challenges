@@ -2,7 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Challenges.c6_unit_testing;
 
-namespace Tests
+namespace Tests.c6
 {
     public class Tests_c6
     {

@@ -3,7 +3,7 @@ using Challenges.c8_dictionaries;
 using System.Collections.Generic;
 using Challenges;
 
-namespace Tests
+namespace Tests.c8
 {
     [TestClass]
     public class Test_FilterByIsbn

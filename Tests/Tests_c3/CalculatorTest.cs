@@ -2,7 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Challenges.c3_classes;
 
-namespace Tests.Tests_c3
+namespace Tests.c3
 {
     [TestClass]
     public class Tests_calculator

@@ -2,7 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Challenges.c2_control_flow_extended;
 
-namespace Tests
+namespace Tests.c2
 {
     [TestClass]
     public class Test_GetFullName

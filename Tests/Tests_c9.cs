@@ -3,7 +3,7 @@ using Challenges;
 using Challenges.c9_forEach_and_linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Tests
+namespace Tests.c9
 {
     [TestClass]
     public class Tests_FindIsbnByTitle
@@ -60,7 +60,8 @@ namespace Tests
     }
 
     [TestClass]
-    public class Test_FindByIsbnSnippet {
+    public class Test_FindByIsbnSnippet
+    {
 
         private Challenge challenge;
         private Dictionary<string, string> books;
@@ -204,32 +205,32 @@ namespace Tests
 
         }
     }
-}
-
-[TestClass]
-public class Test_WeeklyFemaleSubscribers
-{
-    private Challenge challenge;
-    private List<Subscriber> subscribers;
 
 
-
-    [TestInitialize]
-    public void SetUp()
+    [TestClass]
+    public class Test_WeeklyFemaleSubscribers
     {
-        challenge = new Challenge();
-        Subscriber dave = new Subscriber("dave", "male", 25, 1647471725); // Mar 17
-        Subscriber sandra = new Subscriber("Sandra", "female", 25, 1645988460); //Feb 28 
-        Subscriber michaela = new Subscriber("Michaela", "female", 23, 1647813765); // Mar 21
-        Subscriber agnes = new Subscriber("Agnes", "female", 39, 1647903725); // Mar 22
-        Subscriber will = new Subscriber("Will", "male", 40, 1645052525); // Feb 17
-        Subscriber hubert = new Subscriber("Hubert", "male", 33, 1643576703); // Jan 31
-        Subscriber steve = new Subscriber("Steve", "male", 24, 1643673788); // Feb 01
-        Subscriber cam = new Subscriber("Cam", "male", 55, 1646352188); // Mar 04
-        Subscriber jane = new Subscriber("Jane", "female", 25, 1641783600); //Jan 10 
-        Subscriber linda = new Subscriber("Linda", "female", 67, 1647111660); // Mar 13
+        private Challenge challenge;
+        private List<Subscriber> subscribers;
 
-        subscribers = new List<Subscriber>
+
+
+        [TestInitialize]
+        public void SetUp()
+        {
+            challenge = new Challenge();
+            Subscriber dave = new Subscriber("dave", "male", 25, 1647471725); // Mar 17
+            Subscriber sandra = new Subscriber("Sandra", "female", 25, 1645988460); //Feb 28 
+            Subscriber michaela = new Subscriber("Michaela", "female", 23, 1647813765); // Mar 21
+            Subscriber agnes = new Subscriber("Agnes", "female", 39, 1647903725); // Mar 22
+            Subscriber will = new Subscriber("Will", "male", 40, 1645052525); // Feb 17
+            Subscriber hubert = new Subscriber("Hubert", "male", 33, 1643576703); // Jan 31
+            Subscriber steve = new Subscriber("Steve", "male", 24, 1643673788); // Feb 01
+            Subscriber cam = new Subscriber("Cam", "male", 55, 1646352188); // Mar 04
+            Subscriber jane = new Subscriber("Jane", "female", 25, 1641783600); //Jan 10 
+            Subscriber linda = new Subscriber("Linda", "female", 67, 1647111660); // Mar 13
+
+            subscribers = new List<Subscriber>
     {
         dave,
         sandra,
@@ -242,43 +243,44 @@ public class Test_WeeklyFemaleSubscribers
         jane,
         linda
     };
-    }
+        }
 
-    [TestMethod]
-    public void ValidInput()
-    {
-        List<Subscriber> result = challenge.WeeklyFemaleSubscribers(subscribers);
-        Assert.AreEqual(4, result.Count);
-        Assert.AreEqual("Sandra", result[0].Name);
-        Assert.AreEqual("Michaela", result[1].Name);
-        Assert.AreEqual("Agnes", result[2].Name);
-        Assert.AreEqual("Jane", result[3].Name);
-    }
+        [TestMethod]
+        public void ValidInput()
+        {
+            List<Subscriber> result = challenge.WeeklyFemaleSubscribers(subscribers);
+            Assert.AreEqual(4, result.Count);
+            Assert.AreEqual("Sandra", result[0].Name);
+            Assert.AreEqual("Michaela", result[1].Name);
+            Assert.AreEqual("Agnes", result[2].Name);
+            Assert.AreEqual("Jane", result[3].Name);
+        }
 
-    [TestMethod]
-    public void ValidInput_ReturnsNonEmptyList()
-    {
-        List<Subscriber> result = challenge.WeeklyFemaleSubscribers(subscribers);
-        int zero = 0;
-        int size = result.Count;
-        Assert.AreNotEqual(zero, size);
+        [TestMethod]
+        public void ValidInput_ReturnsNonEmptyList()
+        {
+            List<Subscriber> result = challenge.WeeklyFemaleSubscribers(subscribers);
+            int zero = 0;
+            int size = result.Count;
+            Assert.AreNotEqual(zero, size);
 
-    }
+        }
 
-    [TestMethod]
-    public void ValidInput_ReturnsNoMen()
-    {
-        List<Subscriber> result = challenge.WeeklyFemaleSubscribers(subscribers);
-        List<Subscriber> men = subscribers.FindAll(s => s.Gender == "male");
-        Assert.IsNull(result.Find(sub => sub.Gender == "male"));
+        [TestMethod]
+        public void ValidInput_ReturnsNoMen()
+        {
+            List<Subscriber> result = challenge.WeeklyFemaleSubscribers(subscribers);
+            List<Subscriber> men = subscribers.FindAll(s => s.Gender == "male");
+            Assert.IsNull(result.Find(sub => sub.Gender == "male"));
 
-    }
+        }
 
-    [TestMethod]
-    public void ValidInput_ReturnsNoOneOverForty()
-    {
-        List<Subscriber> result = challenge.WeeklyFemaleSubscribers(subscribers);
-        Assert.IsNull(result.Find(sub => sub.Age > 40));
+        [TestMethod]
+        public void ValidInput_ReturnsNoOneOverForty()
+        {
+            List<Subscriber> result = challenge.WeeklyFemaleSubscribers(subscribers);
+            Assert.IsNull(result.Find(sub => sub.Age > 40));
 
+        }
     }
 }

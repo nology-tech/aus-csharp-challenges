@@ -3,7 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Challenges.c7_collections;
 using System.Collections.Generic;
 
-namespace Tests
+namespace Tests.c7
 {
     [TestClass]
     public class Tests_CsvToList

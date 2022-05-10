@@ -2,7 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Challenges.c4_arrays_and_loops;
 
-namespace Tests
+namespace Tests.c4
 {
     [TestClass]
     public class Test_GetFirstAndLast

@@ -3,8 +3,9 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Challenges.c3_classes;
 using Math = Challenges.c3_classes.Math;
 
-namespace Tests.Tests_c3
+namespace Tests.c3
 {
+    [TestClass]
     public class MathTest
     {
         //public Math math;

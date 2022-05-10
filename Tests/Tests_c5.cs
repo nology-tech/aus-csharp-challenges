@@ -2,7 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Challenges.c5_arrays_extended;
 
-namespace Tests
+namespace Tests.c5
 {
     [TestClass]
     public class Test_CalculateCrosses

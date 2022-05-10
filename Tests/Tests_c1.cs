@@ -1,7 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Challenges.c1_types_and_control_flow;
 
-namespace Tests
+namespace Tests.c1
 {
     [TestClass]
     public class Test_FindLargestNumber
