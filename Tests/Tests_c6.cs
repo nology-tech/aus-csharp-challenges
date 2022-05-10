@@ -27,6 +27,7 @@ namespace Tests
                 public void ValidSentence_ReturnsCorrectCount()
                 {
                     // ... Write your code here
+                    throw new NotImplementedException();
                 }
             }
             // 2 - Write a positive test below
@@ -46,6 +47,7 @@ namespace Tests
                 public void ValidPalindrome_ReturnsTrue()
                 {
                     // ... Write your code here
+                    throw new NotImplementedException();
                 }
             }
 
@@ -65,6 +67,7 @@ namespace Tests
                 public void ValidName_ReturnsCorrectFullName()
                 {
                     // ... Write your code here
+                    throw new NotImplementedException();
                 }
 
                 // 4 - Write a negative test below
@@ -73,6 +76,7 @@ namespace Tests
                 {
                     // ... Write your code here
                     //     NOTE: You might want to alter getFullName() for this
+                    throw new NotImplementedException();
                 }
             }
         }
