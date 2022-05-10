@@ -7,13 +7,13 @@ namespace Tests.Tests_c3
 {
     public class MathTest
     {
-        public Math math;
+        //public Math math;
 
-    [TestInitialize]
-    public void SetUp()
-        {
-            math = new Math();
-        }
+    //[TestInitialize]
+    //public void SetUp()
+    //    {
+    //        math = new Math();
+    //    }
 
     // Testing fields, getters and setters
     // Uncomment the tests below when you have completed the getters
