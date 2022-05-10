@@ -58,7 +58,7 @@ namespace Tests
         public void EqualStrings_ReturnsEqualMessage()
         {
             string result = challenge.FindLongestString("Cattywampus", "Cattywampus");
-            Assert.AreEqual("These two are the same length!", result);
+            Assert.AreEqual("These two are the same length", result);
         }
 
         [TestMethod]
