@@ -215,6 +215,36 @@ namespace Tests.c1
     }
 
     [TestClass]
+    public class Test_IsEven
+    {
+        private Challenge challenge;
+
+        [TestInitialize]
+        public void Setup()
+        {
+            challenge = new Challenge();
+        }
+
+        [TestMethod]
+        public void ValidInput_ReturnsTrue()
+        {
+            Assert.IsTrue(challenge.IsEvenWord("test"));
+            Assert.IsTrue(challenge.IsEvenWord("longword"));
+            Assert.IsTrue(challenge.IsEvenWord("it"));
+            Assert.IsTrue(challenge.IsEvenWord("----------"));
+        }
+
+        [TestMethod]
+        public void ValidInput_ReturnsFalse()
+        {
+            Assert.IsFalse(challenge.IsEvenWord("yes"));
+            Assert.IsFalse(challenge.IsEvenWord("hereisaphrase"));
+            Assert.IsFalse(challenge.IsEvenWord("i"));
+            Assert.IsFalse(challenge.IsEvenWord("-----------"));
+        }
+    }
+
+    [TestClass]
     public class Test_LeapYearChecker
     {
         private Challenge challenge;
