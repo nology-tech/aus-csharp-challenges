@@ -17,9 +17,9 @@
 
         ///
         /// Create 3 private fields below:
-        /// - hasBattery is a bool set to true by default
-        /// - firstInput is a double
-        /// - secondInput is a double
+        /// - _hasBattery is a bool set to true by default
+        /// - _firstInput is a double
+        /// - _secondInput is a double
 
         ///
         /// Create a constructor below to initialize the class and the data to the fields above.
