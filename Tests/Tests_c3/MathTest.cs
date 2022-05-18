@@ -22,33 +22,12 @@ namespace Tests.c3
         //[TestMethod]
         //public void GetPI_ValidFields_ReturnsCorrectNumber()
         //{
-        //    double result = math.GetPI();
+        //    double result = math.PI;
         //    Assert.AreEqual(3.141592653589793, result);
-        //}
-
-        //[TestMethod]
-        //public void SetPI_ValidInput_UpdatesPIField()
-        //{
-        //    math.SetPI(3.14);
-        //    double result = math.GetPI();
-        //    Assert.AreEqual(3.14, result);
-        //}
-
-        //[TestMethod]
-        //public void SetPI_InvalidInputs_DoesNotUpdatePIField()
-        //{
-        //    math.SetPI(3.2);
-        //    double overRange = math.GetPI();
-        //    Assert.AreEqual(3.141592653589793, overRange);
-
-        //    math.SetPI(3);
-        //    double underRange = math.GetPI();
-        //    Assert.AreEqual(3.141592653589793, underRange);
         //}
 
     // Testing min
     // Uncomment the tests below when you have completed the min method
-
 
         //[TestMethod]
         //public void Min_ValidInputs_ReturnsFirstNumber()
@@ -103,14 +82,6 @@ namespace Tests.c3
         //{
         //    double result = math.CalculateCircleArea(45);
         //    Assert.AreEqual(6361.725123519331, result);
-        //}
-
-        //[TestMethod]
-        //public void CalculateCircleArea_ValidInputsUpdatedField_ReturnsArea()
-        //{
-        //    math.SetPI(3.14);
-        //    double result = math.CalculateCircleArea(45);
-        //    Assert.AreEqual(6358.5, result);
         //}
 
         //[TestMethod]
